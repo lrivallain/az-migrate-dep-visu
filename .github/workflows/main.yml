@@ -23,5 +23,7 @@ jobs:
         pip install pytest pytest-flask
 
     - name: Run tests
+      env:
+        PYTHONPATH: ${{ github.workspace }}
       run: |
         pytest
