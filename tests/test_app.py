@@ -5,9 +5,9 @@ import io
 from urllib.parse import unquote
 import unittest
 
-from az_migrate_dep_visu.app import app, read_csv, extract_unique_values,
+from az_migrate_dep_visu.app import (app, read_csv, extract_unique_values,
     count_occurrences, create_unique_data, is_rfc1918, generate_node_colors,
-    process_data
+    process_data)
 
 
 def test_read_csv():
