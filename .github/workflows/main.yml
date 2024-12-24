@@ -55,7 +55,7 @@ jobs:
         run: |
           PACKAGE_VERSION=$(python setup.py --version)
           GIT_TAG=${GITHUB_REF#refs/tags/}
-          if [ "$PACKAGE_VERSION" != "$GIT_TAG" ]; then
+          if [ "v$PACKAGE_VERSION" != "$GIT_TAG" ]; then
             echo "Package version ($PACKAGE_VERSION) does not match git tag ($GIT_TAG)"
             exit 1
           fi
