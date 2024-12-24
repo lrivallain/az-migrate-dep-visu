@@ -1,3 +1,5 @@
+[![Python application](https://github.com/lrivallain/az-migrate-dep-visu/actions/workflows/main.yml/badge.svg)](https://github.com/lrivallain/az-migrate-dep-visu/actions/workflows/main.yml)
+
 # Network Flows Visualization
 
 This project is a web application that processes and visualizes network flow data from CSV files exported from
