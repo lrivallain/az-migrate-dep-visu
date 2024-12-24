@@ -42,12 +42,12 @@ filter the content and prepare migration plans.
 
 ## Running the Application
 
-### From command line
+### From source
 
 1. Install the required Python packages:
 
    ```bash
-   pip install -r requirements.txt
+   pip install .
    python app.py
    ```
 
@@ -58,8 +58,27 @@ filter the content and prepare migration plans.
 1. Build the Docker image:
 
    ```bash
-   docker build -t network-flows-visualization .
-   docker run -p 5000:5000 network-flows-visualization
+   docker build -t az-migrate-dep-visu .
+   docker run -p 5000:5000 az-migrate-dep-visu
    ```
 
 2. Open the application in a web browser: [http://localhost:5000](http://localhost:5000)
+
+## From PyPi
+
+1. To install the package, use pip:
+
+   ```bash
+   pip install az-migrate-dep-visu
+   ```
+
+2. To use the package in your project, import and run the application:
+
+   ```python
+   from az_migrate_dep_visu import app
+
+   if __name__ == '__main__':
+       app.run(debug=True)
+   ```
+
+3. Run the python script and open the application in a web browser: [http://localhost:5000](http://localhost:5000)

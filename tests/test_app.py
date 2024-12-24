@@ -1,44 +1,20 @@
 import pytest
 from flask import Flask
 from werkzeug.datastructures import FileStorage
-from io import BytesIO
+import io
 from urllib.parse import unquote
-from app import app, read_csv, extract_unique_values, count_occurrences, create_unique_data, is_rfc1918, generate_node_colors, process_data
+import unittest
 
-@pytest.fixture
-def client():
-    app.config['TESTING'] = True
-    with app.test_client() as client:
-        yield client
+from az_migrate_dep_visu.app import app, read_csv, extract_unique_values,
+    count_occurrences, create_unique_data, is_rfc1918, generate_node_colors,
+    process_data
 
-def test_upload_file(client):
-    """Test the upload file page."""
-    rv = client.get('/')
-    assert rv.status_code == 200
-    assert b'Upload CSV File' in rv.data
-
-def test_uploader_file_no_file(client):
-    """Test the uploader file route with no file."""
-    rv = client.post('/flows', data={})
-    assert rv.status_code == 302
-    location = rv.headers['Location']
-    assert 'No+file+part+in+the+request' in unquote(location)
-
-def test_uploader_file_empty_file(client):
-    """Test the uploader file route with an empty file."""
-    data = {
-        'file': (BytesIO(b''), '')
-    }
-    rv = client.post('/flows', data=data, content_type='multipart/form-data')
-    assert rv.status_code == 302
-    location = rv.headers['Location']
-    assert 'No+selected+file' in unquote(location)
 
 def test_read_csv():
     """Test the read_csv function."""
     file_content = b"Source server name,Source IP,Source application,Source process,Destination server name,Destination IP,Destination application,Destination process,Destination port,Source VLAN,Destination VLAN\n"
     file_content += b"server1,192.168.1.1,app1,proc1,server2,192.168.1.2,app2,proc2,80,1,2\n"
-    file = FileStorage(stream=BytesIO(file_content), filename="test.csv", content_type="text/csv")
+    file = FileStorage(stream=io.BytesIO(file_content), filename="test.csv", content_type="text/csv")
     data = read_csv(file)
     assert len(data) == 1
     assert data[0]['source'] == '192.168.1.1'
@@ -100,7 +76,7 @@ def test_process_data():
     """Test the process_data function."""
     file_content = b"Source server name,Source IP,Source application,Source process,Destination server name,Destination IP,Destination application,Destination process,Destination port,Source VLAN,Destination VLAN\n"
     file_content += b"server1,192.168.1.1,app1,proc1,server2,192.168.1.2,app2,proc2,80,1,2\n"
-    file = FileStorage(stream=BytesIO(file_content), filename="test.csv", content_type="text/csv")
+    file = FileStorage(stream=io.BytesIO(file_content), filename="test.csv", content_type="text/csv")
     data = process_data(file)
     assert 'unique_source_ips' in data
     assert 'unique_destination_ips' in data
@@ -109,3 +85,41 @@ def test_process_data():
     assert 'unique_destination_vlans' in data
     assert 'unique_data_sorted' in data
     assert 'node_colors' in data
+
+class AppTestCase(unittest.TestCase):
+    def setUp(self):
+        self.app = app.test_client()
+        self.app.testing = True
+
+    def test_upload_page(self):
+        response = self.app.get('/')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'Upload CSV File', response.data)
+
+    def test_upload_no_file(self):
+        response = self.app.post('/flows', data={}, follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'No file part in the request', response.data)
+
+    def test_upload_empty_file(self):
+        data = {
+            'file': (io.BytesIO(b''), '')
+        }
+        response = self.app.post('/flows', data=data, content_type='multipart/form-data', follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'No selected file', response.data)
+
+    def test_upload_valid_file(self):
+        """Test the uploader file route with a valid file."""
+        file_content = b"Source server name,Source IP,Source application,Source process,Destination server name,Destination IP,Destination application,Destination process,Destination port,Source VLAN,Destination VLAN\n"
+        file_content += b"server1,192.168.1.1,app1,proc1,server2,192.168.1.2,app2,proc2,80,1,2\n"
+        data = {
+            'file': (io.BytesIO(file_content), 'test.csv')
+        }
+        response = self.app.post('/flows', data=data, content_type='multipart/form-data', follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'test.csv', response.data)
+        self.assertIn(b'192.168.1.1', response.data)
+
+if __name__ == '__main__':
+    unittest.main()
