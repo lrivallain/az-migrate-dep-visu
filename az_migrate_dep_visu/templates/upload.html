@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2 class="mb-4">Upload CSV File</h2>
+    <div>
+        <p class="lead">Upload a CSV file from <i>Azure Migrate Dependency analysis</i> to start visualization.</p>
+        <p>You can add following columns to the CSV file to help grouping resources:</p>
+        <ul>
+            <li><code>Source VLAN</code></li>
+            <li><code>Destination VLAN</code></li>
+        </ul>
+        <div class="alert alert-warning" role="alert">
+            Be sure to use the exact column names as mentioned above.
+        </div>
+        <div class="alert alert-info" role="alert">
+            <p><strong>Data Privacy Notice:</strong> The data you upload is processed on our server solely for the purpose
+            of analysis. We do not store or log any of the uploaded data. Once the analysis is complete, the results are
+            displayed on the web page and managed by your browser for visualization.</p>
+            <p>The ownership of the data remains with you, the user.
+            The tool owner does not assume any responsibility for the data.</p>
+            <p>It is recommended to run the tool in a self-hosted environment for sensitive data.</p>
+        </div>
+    </div>
+    <form action="/flows" method="post" enctype="multipart/form-data" class="form-inline">
+        <div class="form-group mb-2">
+            <input type="file" name="file" class="form-control-file">
+        </div>
+        <button type="submit" class="btn btn-primary mb-2 ml-2">Upload</button>
+    </form>
+    {% if error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endif %}
+{% endblock %}

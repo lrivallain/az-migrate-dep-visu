@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% block head %}
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<div id="graph-caption">
+    <p><strong>File:</strong> <code>{{ file_name }}</code></p>
+    <div id="enable-clustering-container">
+        <label for="enable-clustering">Group per VLAN:</label>
+        <input type="checkbox" id="enable-clustering" class="form-check-input" checked>
+    </div>
+</div>
+<!-- Add this hidden element to store nodeColors data -->
+<script id="nodeColors" type="application/json">{{ node_colors | tojson }}</script>
+<div id="loading-bar" class="progress" role="progressbar">
+    <div id="loading-bar-progress" class="progress-bar bg-success" style="width: 0%;">0%</div>
+</div>
+<div id="network"></div>
+<div class="filter-container">
+    <div class="form-group">
+        <label for="source-ip-filter">Source IP:</label>
+        <select id="source-ip-filter" class="form-control">
+            <option value="">All</option>
+            {% for ip in unique_source_ips %}
+            <option value="{{ ip }}">{{ ip }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="destination-ip-filter">Destination IP:</label>
+        <select id="destination-ip-filter" class="form-control">
+            <option value="">All</option>
+            {% for ip in unique_destination_ips %}
+            <option value="{{ ip }}">{{ ip }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="port-filter">Port:</label>
+        <select id="port-filter" class="form-control">
+            <option value="">All</option>
+            {% for port in unique_ports %}
+            <option value="{{ port }}">{{ port }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="source-vlan-filter">Source VLAN:</label>
+        <select id="source-vlan-filter" class="form-control">
+            <option value="">All</option>
+            {% for vlan in unique_source_vlans %}
+            <option value="{{ vlan }}">{{ vlan }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="destination-vlan-filter">Destination VLAN:</label>
+        <select id="destination-vlan-filter" class="form-control">
+            <option value="">All</option>
+            {% for vlan in unique_destination_vlans %}
+            <option value="{{ vlan }}">{{ vlan }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="column-select">Select Columns:</label>
+        <select id="column-select" class="form-control" multiple="multiple">
+            <option value="0">Source Server Name</option>
+            <option value="1" selected>Source IP</option>
+            <option value="2">Source Application</option>
+            <option value="3">Source Process</option>
+            <option value="4">Destination Server Name</option>
+            <option value="5" selected>Destination IP</option>
+            <option value="6">Destination Application</option>
+            <option value="7">Destination Process</option>
+            <option value="8" selected>Destination Port</option>
+            <option value="9">Source VLAN</option>
+            <option value="10">Destination VLAN</option>
+            <option value="11" selected>Count</option>
+        </select>
+    </div>
+</div>
+<table id="flows-table" class="table table-striped table-bordered" style="width:100%;">
+    <thead>
+        <tr>
+            <th>Source Server Name</th>
+            <th>Source IP</th>
+            <th>Source Application</th>
+            <th>Source Process</th>
+            <th>Destination Server Name</th>
+            <th>Destination IP</th>
+            <th>Destination Application</th>
+            <th>Destination Process</th>
+            <th>Destination Port</th>
+            <th>Source VLAN</th>
+            <th>Destination VLAN</th>
+            <th>Count</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for entry in unique_data_sorted %}
+        <tr>
+            <td>{{ entry.source_server_name }}</td>
+            <td>{{ entry.source }}</td>
+            <td>{{ entry.source_application }}</td>
+            <td>{{ entry.source_process }}</td>
+            <td>{{ entry.destination_server_name }}</td>
+            <td>{{ entry.target }}</td>
+            <td>{{ entry.destination_application }}</td>
+            <td>{{ entry.destination_process }}</td>
+            <td>{{ entry.port }}</td>
+            <td>{{ entry.source_vlan }}</td>
+            <td>{{ entry.destination_vlan }}</td>
+            <td>{{ entry.count }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<button id="download-csv" class="btn btn-success">Download CSV of the current selection</button>
+<script src="{{ url_for('static', filename='scripts.js') }}"></script>
+{% endblock %}
