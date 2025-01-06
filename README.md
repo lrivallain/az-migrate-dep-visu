@@ -48,7 +48,7 @@ filter the content and prepare migration plans.
 
    ```bash
    pip install .
-   python app.py
+   python az_migrate_dep_visu/app.py
    ```
 
 2. Open the application in a web browser: [http://localhost:5000](http://localhost:5000)
@@ -59,10 +59,15 @@ filter the content and prepare migration plans.
 
    ```bash
    docker build -t az-migrate-dep-visu .
+   ```
+
+2. Run the Docker container:
+
+   ```bash
    docker run -p 5000:5000 az-migrate-dep-visu
    ```
 
-2. Open the application in a web browser: [http://localhost:5000](http://localhost:5000)
+3. Open the application in a web browser: [http://localhost:5000](http://localhost:5000)
 
 ## From PyPi
 
@@ -72,13 +77,24 @@ filter the content and prepare migration plans.
    pip install az-migrate-dep-visu
    ```
 
-2. To use the package in your project, import and run the application:
+2. To run the application:
 
-   ```python
-   from az_migrate_dep_visu import app
-
-   if __name__ == '__main__':
-       app.run(debug=True)
+   ```bash
+   az-mdv
+   # `az-mdv` is a script alias to az_migrate_dep_visu.app
    ```
 
-3. Run the python script and open the application in a web browser: [http://localhost:5000](http://localhost:5000)
+3. Open the application in a web browser: [http://localhost:5000](http://localhost:5000)
+
+## Contributing
+
+Contributions are welcome! If you have suggestions for improvements or find bugs, please open an issue or submit a pull
+request.
+
+### Running Tests
+
+To run the tests, use the following command:
+
+```bash
+pytest
+```

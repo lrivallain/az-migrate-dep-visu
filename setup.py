@@ -14,7 +14,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'az-migrate-dep-visu=az_migrate_dep_visu.app:app.run'
+            'az-mdv=az_migrate_dep_visu.app:app.run'
         ]
     },
     author='Ludovic Rivallain',
