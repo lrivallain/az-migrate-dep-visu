@@ -12,3 +12,8 @@ ENV/
 build/
 # Ignore pytest cache
 .pytest_cache/
+# Ignore terraform local files
+Terraform/.terraform/
+Terraform/.terraform.lock.hcl
+Terraform/terraform.tfstate*
+Terraform/terraform.tfvars

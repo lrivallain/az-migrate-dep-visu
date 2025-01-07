@@ -96,6 +96,11 @@ The application will use this data to help filter and grouping resources in the 
 
 3. Open the application in a web browser: [http://localhost:5000](http://localhost:5000)
 
+### From Terraform & Azure (Container App)
+
+Please refer to the [Terraform deployment guide](Terraform/README.md) for instructions on how to deploy the application
+on Azure using Terraform and Azure Container Apps.
+
 ## Configuration
 
 The application can be configured using environment variables:
@@ -115,3 +120,7 @@ To run the tests, use the following command:
 ```bash
 pytest
 ```
+
+## Example
+
+![Screenshot of the application with a filtered applied](docs/Example.png)
