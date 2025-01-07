@@ -29,6 +29,31 @@ resource "azurerm_container_app" "az_migrate_dep_visu" {
         name  = "FLASK_BIND_ALL"
         value = "true" # force to bind 0.0.0.0 due to Azure App Service limitation
       }
+
+      liveness_probe {
+        port = 5000
+        transport = "HTTP"
+        initial_delay = 60
+        timeout = 3
+        interval_seconds = 60
+        path = "/"
+      }
+
+      readiness_probe {
+        port = 5000
+        transport = "HTTP"
+        timeout = 3
+        interval_seconds = 10
+        path = "/"
+      }
+
+      startup_probe {
+        port = 5000
+        transport = "HTTP"
+        timeout = 3
+        interval_seconds = 10
+        path = "/"
+      }
     }
   }
 
