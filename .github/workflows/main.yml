@@ -86,5 +86,11 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/az-migrate-dep-visu:latest .
-          docker push ${{ secrets.DOCKER_USERNAME }}/az-migrate-dep-visu:latest
+          IMAGE_NAME="${{ secrets.DOCKER_USERNAME }}/az-migrate-dep-visu"
+          docker build -t $IMAGE_NAME:latest .
+          if [[ $GITHUB_REF == refs/tags/* ]]; then
+            TAG=${GITHUB_REF#refs/tags/}
+            docker tag $IMAGE_NAME:latest $IMAGE_NAME:$TAG
+            docker push $IMAGE_NAME:$TAG
+          fi
+          docker push $IMAGE_NAME:latest
