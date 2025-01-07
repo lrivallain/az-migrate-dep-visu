@@ -4,6 +4,7 @@ from flask import Flask, request, render_template, redirect, url_for
 from jinja2 import Template
 import json
 from werkzeug.datastructures import FileStorage
+import os
 
 app = Flask(__name__)
 
@@ -203,4 +204,9 @@ def uploader_file():
         return render_template('result.html', file_name=file.filename, **data)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Configure debug mode based on environment variable FLASK_DEBUG
+    debug_mode = os.getenv('FLASK_DEBUG', 'False').lower() in ['true', '1', 't']
+    # Configure bind address based on environment variable FLASK_BIND_ALL
+    bind_address = '0.0.0.0' if os.getenv('FLASK_BIND_ALL', 'False').lower() in ['true', '1', 't'] else '127.0.0.1'
+    # Run the Flask app
+    app.run(debug=debug_mode, host=bind_address)

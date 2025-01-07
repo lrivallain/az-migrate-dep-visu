@@ -16,5 +16,8 @@ COPY . .
 # Expose the port the app runs on
 EXPOSE 5000
 
+# Set environment variable for Flask
+ENV FLASK_ENV=production
+
 # Command to run the Flask application
 CMD ["python", "az_migrate_dep_visu/app.py"]

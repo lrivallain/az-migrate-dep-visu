@@ -40,6 +40,16 @@ filter the content and prepare migration plans.
 3. **Download Filtered Data**:
    - Click the "Download CSV" button to download the filtered data as a CSV file.
 
+### Optional VLANs data
+
+To help with the filtering, you can add optional VLANs data columns to the CSV file.
+
+The columns should be named `Source VLAN` and `Destination VLAN`.
+
+> These columns are not part of the original CSV file exported from Azure Migrate Dependency analysis.
+
+The application will use this data to help filter and grouping resources in the visualization.
+
 ## Running the Application
 
 ### From source
@@ -85,6 +95,13 @@ filter the content and prepare migration plans.
    ```
 
 3. Open the application in a web browser: [http://localhost:5000](http://localhost:5000)
+
+## Configuration
+
+The application can be configured using environment variables:
+
+* `FLASK_BIND_ALL` (default: `false`): Set to `true` to bind the Flask application to all network interfaces (0.0.0.0).
+* `FLASK_DEBUG` (default: `true`): Set to `true` to enable debug mode in Flask.
 
 ## Contributing
 
