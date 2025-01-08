@@ -8,7 +8,7 @@ WORKDIR /app
 COPY requirements.txt .
 
 # Install the required Python packages
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt && pip install gunicorn
 
 # Copy the rest of the application code into the container
 COPY . .
@@ -19,5 +19,5 @@ EXPOSE 5000
 # Set environment variable for Flask
 ENV FLASK_ENV=production
 
-# Command to run the Flask application
-CMD ["python", "az_migrate_dep_visu/app.py"]
+# Command to run the Flask application with Gunicorn
+CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "az_migrate_dep_visu.app:app"]
