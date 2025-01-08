@@ -27,8 +27,10 @@ body {
     margin-bottom: 20px;
 }
 
-.filter-container label {
-    font-weight: bold;
+.filter-container .form-group {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 10px;
 }
 
 .filter-container select {
@@ -76,8 +78,7 @@ body {
     float: right;
 }
 
-#graph-configuration-container .form-check-input {
+#graph-configuration-container input[type="checkbox"] {
     position: relative;
     margin-left: .5rem;
-    margin-right: .5rem;
 }

@@ -14,10 +14,10 @@
 <div id="graph-caption">
     <p><strong>File:</strong> <code>{{ file_name }}</code></p>
     <div id="graph-configuration-container">
-        <label for="enable-clustering">Group per VLAN:</label>
-        <input type="checkbox" id="enable-clustering" class="form-check-input">
-        <label for="group-nonrfc1918">Group Non-RFC1918:</label>
-        <input type="checkbox" id="group-nonrfc1918" class="form-check-input" checked>
+        <input class="form-check-input" type="checkbox" id="enable-clustering">
+        <label class="form-check-label" for="enable-clustering">Group per VLAN</label>
+        <input class="form-check-input" type="checkbox" id="group-nonrfc1918" checked>
+        <label class="form-check-label" for="group-nonrfc1918">Group Non-RFC1918</label>
     </div>
 </div>
 <!-- Add this hidden element to store nodeColors data -->
@@ -29,7 +29,7 @@
 <div class="filter-container">
     <div class="form-group">
         <label for="source-ip-filter">Source IP:</label>
-        <select id="source-ip-filter" class="form-control">
+        <select id="source-ip-filter" class="form-select">
             <option value="">All</option>
             <option value="non-rfc1918">Non-RFC1918</option>
             <option value="rfc1918">RFC1918</option>
@@ -40,7 +40,7 @@
     </div>
     <div class="form-group">
         <label for="destination-ip-filter">Destination IP:</label>
-        <select id="destination-ip-filter" class="form-control">
+        <select id="destination-ip-filter" class="form-select">
             <option value="">All</option>
             <option value="non-rfc1918">Non-RFC1918</option>
             <option value="rfc1918">RFC1918</option>
@@ -51,7 +51,7 @@
     </div>
     <div class="form-group">
         <label for="port-filter">Port:</label>
-        <select id="port-filter" class="form-control">
+        <select id="port-filter" class="form-select">
             <option value="">All</option>
             {% for port in unique_ports %}
             <option value="{{ port }}">{{ port }}</option>
@@ -60,7 +60,7 @@
     </div>
     <div class="form-group">
         <label for="source-vlan-filter">Source VLAN:</label>
-        <select id="source-vlan-filter" class="form-control">
+        <select id="source-vlan-filter" class="form-select">
             <option value="">All</option>
             {% for vlan in unique_source_vlans %}
             <option value="{{ vlan }}">{{ vlan }}</option>
@@ -69,7 +69,7 @@
     </div>
     <div class="form-group">
         <label for="destination-vlan-filter">Destination VLAN:</label>
-        <select id="destination-vlan-filter" class="form-control">
+        <select id="destination-vlan-filter" class="form-select">
             <option value="">All</option>
             {% for vlan in unique_destination_vlans %}
             <option value="{{ vlan }}">{{ vlan }}</option>
@@ -78,7 +78,7 @@
     </div>
     <div class="form-group">
         <label for="column-select">Select Columns:</label>
-        <select id="column-select" class="form-control" multiple="multiple">
+        <select id="column-select" class="form-select" multiple="multiple">
             <option value="0">Source Server Name</option>
             <option value="1" selected>Source IP</option>
             <option value="2">Source Application</option>
