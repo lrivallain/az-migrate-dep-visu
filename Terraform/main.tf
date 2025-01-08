@@ -55,6 +55,7 @@ resource "azurerm_container_app" "az_migrate_dep_visu" {
         path = "/"
       }
     }
+    max_replicas = 3
   }
 
   ingress {
