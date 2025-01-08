@@ -91,7 +91,7 @@ $(document).ready(function () {
     }
 
     function groupNonRFC1918(nodes, edges) {
-        const nonRFC1918Node = { id: 'non-rfc1918', label: 'Non-RFC1918', color: '#696969' };
+        const nonRFC1918Node = { id: 'non-rfc1918', label: 'Non-RFC1918', shape: 'icon', icon: { face: 'FontAwesome', code: '\uf0c2', size: 75, color: '#00aaff' } };
         const newNodes = [];
         const newEdges = [];
         let nonRFC1918Involved = false;
@@ -315,6 +315,19 @@ $(document).ready(function () {
 
         network.once("stabilized", function () {
             document.getElementById('loading-bar').style.display = 'none';
+
+            // Wait before enforcing a small move in the graph
+            // This move to fix a rendering issue of icons in the graph
+            setTimeout(function () {
+                network.moveTo({
+                    offset: { x: 1, y: 1 }, // Move by 1 pixel
+                    duration: 0 // No animation
+                });
+                network.moveTo({
+                    offset: { x: -1, y: -1 }, // Move back by 1 pixel
+                    duration: 0 // No animation
+                });
+            }, 100);
         });
 
         network.setData(data);
