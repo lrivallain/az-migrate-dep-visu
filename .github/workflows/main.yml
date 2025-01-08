@@ -3,6 +3,7 @@ name: Python application
 on:
 - push
 - pull_request
+- tag
 
 jobs:
   build:
@@ -91,6 +92,7 @@ jobs:
           if [[ $GITHUB_REF == refs/tags/* ]]; then
             TAG=${GITHUB_REF#refs/tags/}
             docker tag $IMAGE_NAME:latest $IMAGE_NAME:$TAG
+            echo "pushing docker tag $TAG"
             docker push $IMAGE_NAME:$TAG
           fi
           docker push $IMAGE_NAME:latest
