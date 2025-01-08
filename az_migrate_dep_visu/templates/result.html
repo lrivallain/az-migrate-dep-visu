@@ -131,5 +131,12 @@
     </tbody>
 </table>
 <button id="download-csv" class="btn btn-success">Download CSV of the current selection</button>
+<button id="reset-preferences" class="btn btn-secondary" type="button"
+    data-bs-toggle="tooltip"
+    data-bs-placement="top"
+    data-bs-title="Your filtering and graph options are stored in a cookie.
+        You can reset this by using the 'Reset preferences' button.">
+    Reset preferences
+</button>
 <script src="{{ url_for('static', filename='scripts.js') }}"></script>
 {% endblock %}

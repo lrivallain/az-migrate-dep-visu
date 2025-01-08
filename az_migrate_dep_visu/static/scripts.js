@@ -56,6 +56,17 @@ $(document).ready(function () {
         setCookie('groupNonRFC1918', groupNonRFC1918, 7);
     }
 
+    function resetPreferences() {
+        setCookie('selectedColumns', '', -1);
+        setCookie('enableClustering', '', -1);
+        setCookie('groupNonRFC1918', '', -1);
+        location.reload();
+    }
+
+    $('#reset-preferences').on('click', function () {
+        resetPreferences();
+    });
+
     loadSettings();
 
     if (!$.fn.DataTable.isDataTable('#flows-table')) {
