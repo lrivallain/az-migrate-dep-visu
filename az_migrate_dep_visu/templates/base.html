@@ -18,8 +18,10 @@
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ms-auto">
                     {% if request.endpoint != 'upload_file' %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Upload new file</a>
+                    <li class="nav-item me-3">
+                        <a class="nav-link icon-link icon-link-hover" href="/">
+                            <i class="fas fa-upload" style="font-size: 20px;"></i> Upload new file
+                        </a>
                     </li>
                     {% endif %}
                     <li class="nav-item">
