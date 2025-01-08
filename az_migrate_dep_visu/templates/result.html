@@ -13,9 +13,11 @@
 {% block content %}
 <div id="graph-caption">
     <p><strong>File:</strong> <code>{{ file_name }}</code></p>
-    <div id="enable-clustering-container">
+    <div id="graph-configuration-container">
         <label for="enable-clustering">Group per VLAN:</label>
         <input type="checkbox" id="enable-clustering" class="form-check-input" checked>
+        <label for="group-nonrfc1918">Group Non-RFC1918:</label>
+        <input type="checkbox" id="group-nonrfc1918" class="form-check-input">
     </div>
 </div>
 <!-- Add this hidden element to store nodeColors data -->
@@ -29,6 +31,8 @@
         <label for="source-ip-filter">Source IP:</label>
         <select id="source-ip-filter" class="form-control">
             <option value="">All</option>
+            <option value="non-rfc1918">Non-RFC1918</option>
+            <option value="rfc1918">RFC1918</option>
             {% for ip in unique_source_ips %}
             <option value="{{ ip }}">{{ ip }}</option>
             {% endfor %}
@@ -38,6 +42,8 @@
         <label for="destination-ip-filter">Destination IP:</label>
         <select id="destination-ip-filter" class="form-control">
             <option value="">All</option>
+            <option value="non-rfc1918">Non-RFC1918</option>
+            <option value="rfc1918">RFC1918</option>
             {% for ip in unique_destination_ips %}
             <option value="{{ ip }}">{{ ip }}</option>
             {% endfor %}
