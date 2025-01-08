@@ -13,6 +13,8 @@ filter the content and prepare migration plans.
 - **Visualization**: Visualize the network flows using interactive graphs.
 - **Filtering**: Filter the data based on various criteria such as IP addresses, ports, and VLANs.
 - **CSV Download**: Download the filtered data as a CSV file.
+- **VLANs**: Support for optional VLANs data columns in the CSV file and flow grouping.
+- **Non RFC1918 IPs**: Regroup and filter non-RFC1918 IP addresses.
 
 ## How to Use
 
@@ -36,6 +38,14 @@ filter the content and prepare migration plans.
    - After uploading, you will be redirected to the visualization page.
    - Use the filters to narrow down the data based on source IP, destination IP, port, and VLANs.
    - The data will be displayed in a table and as an interactive graph.
+
+4. **Graph Interaction**:
+   - Click on a connection to get some information about the flow statistics.
+
+5. **Filter and group Non-RFC1918 IPs**:
+   - Use the "Group Non-RFC1918" button to group non-RFC1918 IP addresses.
+   - Table will be updated to simplify the search and filtering.
+   - This enables to focus on Internet-bound traffic.
 
 3. **Download Filtered Data**:
    - Click the "Download CSV" button to download the filtered data as a CSV file.
@@ -123,4 +133,4 @@ pytest
 
 ## Example
 
-![Screenshot of the application with a filtered applied](docs/Example.png)
+![Screenshot of the application with a filtered applied](docs/images/Example.png)
