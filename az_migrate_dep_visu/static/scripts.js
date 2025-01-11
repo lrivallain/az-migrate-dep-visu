@@ -40,8 +40,10 @@ $(document).ready(function () {
         }
 
         var groupNonRFC1918 = getCookie('groupNonRFC1918');
-        if (groupNonRFC1918) {
+        if (groupNonRFC1918 !== undefined) {
             $('#group-nonrfc1918').prop('checked', groupNonRFC1918 === 'true');
+        } else {
+            $('#group-nonrfc1918').prop('checked', true); // Auto check if no preference is set
         }
     }
 
