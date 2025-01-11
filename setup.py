@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='az-migrate-dep-visu',
-    version='0.1.2',
+    version='0.1.3',
     packages=find_packages(include=['az_migrate_dep_visu', 'az_migrate_dep_visu.*', 'tests']),
     include_package_data=True,
     install_requires=[
