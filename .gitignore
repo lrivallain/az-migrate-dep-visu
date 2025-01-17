@@ -1,17 +1,3 @@
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-*.env
-.venv
-env/
-venv/
-ENV/
-.python-version
-*egg-info/
-build/
-# Ignore pytest cache
-.pytest_cache/
 # Ignore terraform local files
 Terraform/.terraform/
 Terraform/.terraform.lock.hcl

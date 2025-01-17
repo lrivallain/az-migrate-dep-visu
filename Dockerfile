@@ -1,23 +1,13 @@
-# Use the official Python image from the Docker Hub
-FROM python:3.9-slim
+# Use the official nginx image from the Docker Hub
+FROM nginx:alpine
 
-# Set the working directory in the container
-WORKDIR /app
+# Remove default nginx website
+RUN rm -rf /usr/share/nginx/html/*
 
-# Copy the requirements file into the container
-COPY requirements.txt .
+# Copy the static files into the container
+COPY . /usr/share/nginx/html
 
-# Install the required Python packages
-RUN pip install --no-cache-dir -r requirements.txt && pip install gunicorn
+# Expose the port nginx runs on
+EXPOSE 80
 
-# Copy the rest of the application code into the container
-COPY . .
-
-# Expose the port the app runs on
-EXPOSE 5000
-
-# Set environment variable for Flask
-ENV FLASK_ENV=production
-
-# Command to run the Flask application with Gunicorn
-CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:5000", "az_migrate_dep_visu.app:app"]
+# No CMD needed as nginx runs by default

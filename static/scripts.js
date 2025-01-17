@@ -348,16 +348,157 @@ $(document).ready(function () {
     });
 
     loadSettings();
+});
 
-    if (!$.fn.DataTable.isDataTable('#flows-table')) {
-        table = $('#flows-table').DataTable({
-            orderCellsTop: true,
-            fixedHeader: true,
-            columnDefs: [
-                { targets: [0, 2, 3, 4, 6, 7, 9, 10], visible: false }  // Hide columns by default
-            ]
-        });
+function downloadCSV() {
+    var csv = [];
+    var rows = table.rows().nodes(); // Get all rows, not just the current page
+
+    for (var i = 0; i < rows.length; i++) {
+        var row = [], cols = rows[i].querySelectorAll("td, th");
+
+        for (var j = 0; j < cols.length; j++) {
+            // Escape double quotes by doubling them
+            var cellText = cols[j].innerText.replace(/"/g, '""');
+            // Wrap each cell value in double quotes
+            row.push('"' + cellText + '"');
+        }
+
+        csv.push(row.join(","));
     }
+
+    // Download CSV
+    var csvFile = new Blob([csv.join("\n")], { type: "text/csv" });
+    var downloadLink = document.createElement("a");
+    downloadLink.download = "flows.csv";
+    downloadLink.href = window.URL.createObjectURL(csvFile);
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+}
+
+function initializeTooltips() {
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+}
+
+function initializeUploadButton() {
+    document.getElementById('upload-button').addEventListener('click', function () {
+        var fileInput = document.getElementById('file-input');
+        var file = fileInput.files[0];
+        if (file) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var csvData = e.target.result;
+                document.getElementById('file-name').textContent = file.name;
+                processCSVData(csvData);
+                document.getElementById('upload-section').style.display = 'none';
+                document.getElementById('result-section').style.display = 'block';
+            };
+            reader.readAsText(file);
+        } else {
+            alert('Please select a file to upload.');
+        }
+    });
+}
+
+function processCSVData(csvData) {
+    const rows = csvData.split('\n').slice(1);
+    const data = rows.map(row => {
+        const cols = row.split(',');
+        return {
+            source_server_name: cols[1],
+            source: cols[2],
+            source_application: cols[3],
+            source_process: cols[4],
+            destination_server_name: cols[5],
+            target: cols[6],
+            destination_application: cols[7],
+            destination_process: cols[8],
+            port: cols[9],
+            source_vlan: cols[10],
+            destination_vlan: cols[11],
+            count: 1 // Assuming each row represents a single count
+        };
+    });
+
+    // Group data by matching values and update count
+    const groupedData = {};
+    data.forEach(entry => {
+        const key = `${entry.source_server_name}-${entry.source}-${entry.source_application}-${entry.source_process}-${entry.destination_server_name}-${entry.target}-${entry.destination_application}-${entry.destination_process}-${entry.port}-${entry.source_vlan}-${entry.destination_vlan}`;
+        if (groupedData[key]) {
+            groupedData[key].count += 1;
+        } else {
+            groupedData[key] = entry;
+        }
+    });
+
+    const uniqueSourceIps = [...new Set(data.map(d => d.source))].sort();
+    const uniqueDestinationIps = [...new Set(data.map(d => d.target))].sort();
+    const uniquePorts = [...new Set(data.map(d => d.port))].sort((a, b) => a - b);
+    const uniqueSourceVlans = [...new Set(data.map(d => d.source_vlan))].sort((a, b) => a - b);
+    const uniqueDestinationVlans = [...new Set(data.map(d => d.destination_vlan))].sort((a, b) => a - b);
+
+    const sourceIpFilter = document.getElementById('source-ip-filter');
+    const destinationIpFilter = document.getElementById('destination-ip-filter');
+    const portFilter = document.getElementById('port-filter');
+    const sourceVlanFilter = document.getElementById('source-vlan-filter');
+    const destinationVlanFilter = document.getElementById('destination-vlan-filter');
+
+    uniqueSourceIps.forEach(ip => {
+        const option = document.createElement('option');
+        option.value = ip;
+        option.textContent = ip;
+        sourceIpFilter.appendChild(option);
+    });
+
+    uniqueDestinationIps.forEach(ip => {
+        const option = document.createElement('option');
+        option.value = ip;
+        option.textContent = ip;
+        destinationIpFilter.appendChild(option);
+    });
+
+    uniquePorts.forEach(port => {
+        const option = document.createElement('option');
+        option.value = port;
+        option.textContent = port;
+        portFilter.appendChild(option);
+    });
+
+    uniqueSourceVlans.forEach(vlan => {
+        const option = document.createElement('option');
+        option.value = vlan;
+        option.textContent = vlan;
+        sourceVlanFilter.appendChild(option);
+    });
+
+    uniqueDestinationVlans.forEach(vlan => {
+        const option = document.createElement('option');
+        option.value = vlan;
+        option.textContent = vlan;
+        destinationVlanFilter.appendChild(option);
+    });
+
+    const tableBody = document.getElementById('flows-table-body');
+    // remove all rows
+    while (tableBody.firstChild) {
+        tableBody.removeChild(tableBody.firstChild);
+    }
+    Object.values(groupedData).forEach(entry => {
+        const row = document.createElement('tr');
+        Object.values(entry).forEach(value => {
+            const cell = document.createElement('td');
+            cell.textContent = value;
+            row.appendChild(cell);
+        });
+        tableBody.appendChild(row);
+    });
+
+    table = $('#flows-table').DataTable();
 
     $('#column-select').on('change', function () {
         var selectedColumns = $(this).val();
@@ -370,7 +511,8 @@ $(document).ready(function () {
         saveSettings();
     });
 
-    var network;
+    // trigger change event to show selected columns
+    $('#column-select').trigger('change');
 
     $('#source-ip-filter, #destination-ip-filter, #port-filter, #source-vlan-filter, #destination-vlan-filter, #enable-clustering, #group-nonrfc1918').on('change', function () {
         var sourceIp = $('#source-ip-filter').val();
@@ -395,7 +537,25 @@ $(document).ready(function () {
             table.column(5).search(destinationIp);
         }
 
-        table.column(8).search(port).column(9).search(sourceVlan).column(10).search(destinationVlan).draw();
+        if (port) {
+            table.column(8).search('^' + port + '$', true, false); // Exact match for port
+        } else {
+            table.column(8).search('');
+        }
+
+        if (sourceVlan) {
+            table.column(9).search('^' + sourceVlan + '$', true, false); // Exact match for source VLAN
+        } else {
+            table.column(9).search('');
+        }
+
+        if (destinationVlan) {
+            table.column(10).search('^' + destinationVlan + '$', true, false); // Exact match for destination VLAN
+        } else {
+            table.column(10).search('');
+        }
+
+        table.draw();
 
         if ($('#group-nonrfc1918').is(':checked')) {
             table.rows().every(function () {
@@ -438,18 +598,8 @@ $(document).ready(function () {
     });
 
     $('#download-csv').off('click').on('click', function () {
-        var csv = 'Source Server Name,Source IP,Source Application,Source Process,Destination Server Name,Destination IP,Destination Application,Destination Process,Destination Port,Source VLAN,Destination VLAN,Count\n';
-        table.rows({ filter: 'applied' }).every(function (rowIdx, tableLoop, rowLoop) {
-            var data = this.data();
-            csv += data.join(',') + '\n';
-        });
-
-        var hiddenElement = document.createElement('a');
-        hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
-        hiddenElement.target = '_blank';
-        hiddenElement.download = 'network_flows.csv';
-        hiddenElement.click();
+        downloadCSV();
     });
 
     updateGraph();
-});
+}

@@ -1,4 +1,0 @@
-networkx[default]
-pyvis
-flask
-jinja2
