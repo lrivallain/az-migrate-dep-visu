@@ -1,8 +1,10 @@
 var nodeColorsElement = document.getElementById('nodeColors');
-var nodeColors = nodeColorsElement ? JSON.parse(nodeColorsElement.textContent) : {};
+if (nodeColorsElement) {
+    var nodeColors = JSON.parse(nodeColorsElement.textContent);
+} else {
+    var nodeColors = {}; // Fallback to an empty object if the element is not found
+}
 
-var table;
-var network;
 var physicsEnabled = true;
 
 function getCookie(name) {
@@ -26,6 +28,9 @@ function loadSettings() {
     if (selectedColumns) {
         selectedColumns = selectedColumns.split(',');
         $('#column-select').val(selectedColumns).trigger('change');
+    } else {
+        // Default selected columns
+        $('#column-select').val(['1', '5', '8', '11']).trigger('change');
     }
 
     var enableClustering = getCookie('enableClustering');
@@ -34,10 +39,10 @@ function loadSettings() {
     }
 
     var groupNonRFC1918 = getCookie('groupNonRFC1918');
-    if (groupNonRFC1918 !== undefined) {
+    if (groupNonRFC1918) {
         $('#group-nonrfc1918').prop('checked', groupNonRFC1918 === 'true');
     } else {
-        $('#group-nonrfc1918').prop('checked', true); // Auto check if no preference is set
+        $('#group-nonrfc1918').prop('checked', true); // Enable by default
     }
 }
 
@@ -53,9 +58,9 @@ function saveSettings() {
 }
 
 function resetPreferences() {
-    setCookie('selectedColumns', '', -1);
-    setCookie('enableClustering', '', -1);
-    setCookie('groupNonRFC1918', '', -1);
+    setCookie('selectedColumns', '1,5,8,11', 7); // Default selected columns
+    setCookie('enableClustering', 'false', 7);
+    setCookie('groupNonRFC1918', 'true', 7);
     location.reload();
 }
 
@@ -254,7 +259,11 @@ function updateGraph() {
             borderWidth: 2,
         },
         edges: {
-            arrows: 'to'
+            arrows: 'to',
+            font: {
+                color: '#ffffff', // Set font color to white
+                strokeWidth: 0 // Remove border around font
+            }
         },
         physics: {
             enabled: physicsEnabled,
@@ -328,22 +337,11 @@ function updateFilters() {
     });
 }
 
-function downloadCSV() {
-    var csv = 'Source Server Name,Source IP,Source Application,Source Process,Destination Server Name,Destination IP,Destination Application,Destination Process,Destination Port,Source VLAN,Destination VLAN,Count\n';
-    table.rows({ filter: 'applied' }).every(function (rowIdx, tableLoop, rowLoop) {
-        var data = this.data();
-        csv += data.join(',') + '\n';
-    });
-
-    var hiddenElement = document.createElement('a');
-    hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
-    hiddenElement.target = '_blank';
-    hiddenElement.download = 'network_flows.csv';
-    hiddenElement.click();
-}
-
+var table;
 $(document).ready(function () {
-    $('#column-select').select2({ width: '100%' });
+    $('#column-select').select2(
+        { width: '100%' }
+    );
 
     $('#reset-preferences').on('click', function () {
         resetPreferences();
@@ -372,6 +370,8 @@ $(document).ready(function () {
         saveSettings();
     });
 
+    var network;
+
     $('#source-ip-filter, #destination-ip-filter, #port-filter, #source-vlan-filter, #destination-vlan-filter, #enable-clustering, #group-nonrfc1918').on('change', function () {
         var sourceIp = $('#source-ip-filter').val();
         var destinationIp = $('#destination-ip-filter').val();
@@ -395,25 +395,7 @@ $(document).ready(function () {
             table.column(5).search(destinationIp);
         }
 
-        if (port) {
-            table.column(8).search('^' + port + '$', true, false); // Exact match for port
-        } else {
-            table.column(8).search('');
-        }
-
-        if (sourceVlan) {
-            table.column(9).search('^' + sourceVlan + '$', true, false); // Exact match for source VLAN
-        } else {
-            table.column(9).search('');
-        }
-
-        if (destinationVlan) {
-            table.column(10).search('^' + destinationVlan + '$', true, false); // Exact match for destination VLAN
-        } else {
-            table.column(10).search('');
-        }
-
-        table.draw();
+        table.column(8).search(port).column(9).search(sourceVlan).column(10).search(destinationVlan).draw();
 
         if ($('#group-nonrfc1918').is(':checked')) {
             table.rows().every(function () {
@@ -456,7 +438,17 @@ $(document).ready(function () {
     });
 
     $('#download-csv').off('click').on('click', function () {
-        downloadCSV();
+        var csv = 'Source Server Name,Source IP,Source Application,Source Process,Destination Server Name,Destination IP,Destination Application,Destination Process,Destination Port,Source VLAN,Destination VLAN,Count\n';
+        table.rows({ filter: 'applied' }).every(function (rowIdx, tableLoop, rowLoop) {
+            var data = this.data();
+            csv += data.join(',') + '\n';
+        });
+
+        var hiddenElement = document.createElement('a');
+        hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
+        hiddenElement.target = '_blank';
+        hiddenElement.download = 'network_flows.csv';
+        hiddenElement.click();
     });
 
     updateGraph();

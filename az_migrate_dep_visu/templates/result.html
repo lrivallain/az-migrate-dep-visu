@@ -20,8 +20,6 @@
         <label class="form-check-label" for="group-nonrfc1918">Group Non-RFC1918</label>
     </div>
 </div>
-<!-- Add this hidden element to store nodeColors data -->
-<script id="nodeColors" type="application/json">{{ node_colors | tojson }}</script>
 <div id="loading-bar" class="progress" role="progressbar">
     <div id="loading-bar-progress" class="progress-bar bg-success" style="width: 0%;">0%</div>
 </div>
@@ -33,9 +31,6 @@
             <option value="">All</option>
             <option value="non-rfc1918">Non-RFC1918</option>
             <option value="rfc1918">RFC1918</option>
-            {% for ip in unique_source_ips %}
-            <option value="{{ ip }}">{{ ip }}</option>
-            {% endfor %}
         </select>
     </div>
     <div class="form-group">
@@ -44,36 +39,24 @@
             <option value="">All</option>
             <option value="non-rfc1918">Non-RFC1918</option>
             <option value="rfc1918">RFC1918</option>
-            {% for ip in unique_destination_ips %}
-            <option value="{{ ip }}">{{ ip }}</option>
-            {% endfor %}
         </select>
     </div>
     <div class="form-group">
         <label for="port-filter">Port:</label>
         <select id="port-filter" class="form-select">
             <option value="">All</option>
-            {% for port in unique_ports %}
-            <option value="{{ port }}">{{ port }}</option>
-            {% endfor %}
         </select>
     </div>
     <div class="form-group">
         <label for="source-vlan-filter">Source VLAN:</label>
         <select id="source-vlan-filter" class="form-select">
             <option value="">All</option>
-            {% for vlan in unique_source_vlans %}
-            <option value="{{ vlan }}">{{ vlan }}</option>
-            {% endfor %}
         </select>
     </div>
     <div class="form-group">
         <label for="destination-vlan-filter">Destination VLAN:</label>
         <select id="destination-vlan-filter" class="form-select">
             <option value="">All</option>
-            {% for vlan in unique_destination_vlans %}
-            <option value="{{ vlan }}">{{ vlan }}</option>
-            {% endfor %}
         </select>
     </div>
     <div class="form-group">
@@ -111,23 +94,7 @@
             <th>Count</th>
         </tr>
     </thead>
-    <tbody>
-        {% for entry in unique_data_sorted %}
-        <tr>
-            <td>{{ entry.source_server_name }}</td>
-            <td>{{ entry.source }}</td>
-            <td>{{ entry.source_application }}</td>
-            <td>{{ entry.source_process }}</td>
-            <td>{{ entry.destination_server_name }}</td>
-            <td>{{ entry.target }}</td>
-            <td>{{ entry.destination_application }}</td>
-            <td>{{ entry.destination_process }}</td>
-            <td>{{ entry.port }}</td>
-            <td>{{ entry.source_vlan }}</td>
-            <td>{{ entry.destination_vlan }}</td>
-            <td>{{ entry.count }}</td>
-        </tr>
-        {% endfor %}
+    <tbody id="flows-table-body">
     </tbody>
 </table>
 <button id="download-csv" class="btn btn-success">Download CSV of the current selection</button>
@@ -139,4 +106,198 @@
     Reset preferences
 </button>
 <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const csvData = `{{ csv_data | safe }}`;
+        const rows = csvData.split('\n').slice(1);
+        const data = rows.map(row => {
+            const cols = row.split(',');
+            return {
+                source_server_name: cols[1],
+                source: cols[2],
+                source_application: cols[3],
+                source_process: cols[4],
+                destination_server_name: cols[5],
+                target: cols[6],
+                destination_application: cols[7],
+                destination_process: cols[8],
+                port: cols[9],
+                source_vlan: cols[10],
+                destination_vlan: cols[11],
+                count: 1 // Assuming each row represents a single count
+            };
+        });
+
+        // Group data by matching values and update count
+        const groupedData = {};
+        data.forEach(entry => {
+            const key = `${entry.source_server_name}-${entry.source}-${entry.source_application}-${entry.source_process}-${entry.destination_server_name}-${entry.target}-${entry.destination_application}-${entry.destination_process}-${entry.port}-${entry.source_vlan}-${entry.destination_vlan}`;
+            if (groupedData[key]) {
+                groupedData[key].count += 1;
+            } else {
+                groupedData[key] = entry;
+            }
+        });
+
+        const uniqueSourceIps = [...new Set(data.map(d => d.source))].sort();
+        const uniqueDestinationIps = [...new Set(data.map(d => d.target))].sort();
+        const uniquePorts = [...new Set(data.map(d => d.port))].sort((a, b) => a - b);
+        const uniqueSourceVlans = [...new Set(data.map(d => d.source_vlan))].sort((a, b) => a - b);
+        const uniqueDestinationVlans = [...new Set(data.map(d => d.destination_vlan))].sort((a, b) => a - b);
+
+        const sourceIpFilter = document.getElementById('source-ip-filter');
+        const destinationIpFilter = document.getElementById('destination-ip-filter');
+        const portFilter = document.getElementById('port-filter');
+        const sourceVlanFilter = document.getElementById('source-vlan-filter');
+        const destinationVlanFilter = document.getElementById('destination-vlan-filter');
+
+        uniqueSourceIps.forEach(ip => {
+            const option = document.createElement('option');
+            option.value = ip;
+            option.textContent = ip;
+            sourceIpFilter.appendChild(option);
+        });
+
+        uniqueDestinationIps.forEach(ip => {
+            const option = document.createElement('option');
+            option.value = ip;
+            option.textContent = ip;
+            destinationIpFilter.appendChild(option);
+        });
+
+        uniquePorts.forEach(port => {
+            const option = document.createElement('option');
+            option.value = port;
+            option.textContent = port;
+            portFilter.appendChild(option);
+        });
+
+        uniqueSourceVlans.forEach(vlan => {
+            const option = document.createElement('option');
+            option.value = vlan;
+            option.textContent = vlan;
+            sourceVlanFilter.appendChild(option);
+        });
+
+        uniqueDestinationVlans.forEach(vlan => {
+            const option = document.createElement('option');
+            option.value = vlan;
+            option.textContent = vlan;
+            destinationVlanFilter.appendChild(option);
+        });
+
+        const tableBody = document.getElementById('flows-table-body');
+        Object.values(groupedData).forEach(entry => {
+            const row = document.createElement('tr');
+            Object.values(entry).forEach(value => {
+                const cell = document.createElement('td');
+                cell.textContent = value;
+                row.appendChild(cell);
+            });
+            tableBody.appendChild(row);
+        });
+
+        table = $('#flows-table').DataTable();
+
+        $('#column-select').on('change', function () {
+            var selectedColumns = $(this).val();
+            table.columns().visible(false);
+            if (selectedColumns) {
+                selectedColumns.forEach(function (colIndex) {
+                    table.column(colIndex).visible(true);
+                });
+            }
+            saveSettings();
+        });
+
+        $('#source-ip-filter, #destination-ip-filter, #port-filter, #source-vlan-filter, #destination-vlan-filter, #enable-clustering, #group-nonrfc1918').on('change', function () {
+            var sourceIp = $('#source-ip-filter').val();
+            var destinationIp = $('#destination-ip-filter').val();
+            var port = $('#port-filter').val();
+            var sourceVlan = $('#source-vlan-filter').val();
+            var destinationVlan = $('#destination-vlan-filter').val();
+
+            if (sourceIp === 'non-rfc1918') {
+                table.column(1).search('^(?!10\\.|172\\.(1[6-9]|2[0-9]|3[0-1])\\.|192\\.168\\.).*$', true, false);
+            } else if (sourceIp === 'rfc1918') {
+                table.column(1).search('^(10\\.|172\\.(1[6-9]|2[0-9]|3[0-1])\\.|192\\.168\\.)', true, false);
+            } else {
+                table.column(1).search(sourceIp);
+            }
+
+            if (destinationIp === 'non-rfc1918') {
+                table.column(5).search('^(?!10\\.|172\\.(1[6-9]|2[0-9]|3[0-1])\\.|192\\.168\\.).*$', true, false);
+            } else if (destinationIp === 'rfc1918') {
+                table.column(5).search('^(10\\.|172\\.(1[6-9]|2[0-9]|3[0-1])\\.|192\\.168\\.)', true, false);
+            } else {
+                table.column(5).search(destinationIp);
+            }
+
+            if (port) {
+                table.column(8).search('^' + port + '$', true, false); // Exact match for port
+            } else {
+                table.column(8).search('');
+            }
+
+            if (sourceVlan) {
+                table.column(9).search('^' + sourceVlan + '$', true, false); // Exact match for source VLAN
+            } else {
+                table.column(9).search('');
+            }
+
+            if (destinationVlan) {
+                table.column(10).search('^' + destinationVlan + '$', true, false); // Exact match for destination VLAN
+            } else {
+                table.column(10).search('');
+            }
+
+            table.draw();
+
+            if ($('#group-nonrfc1918').is(':checked')) {
+                table.rows().every(function () {
+                    var data = this.data();
+                    if (!data.originalSource) {
+                        data.originalSource = data[1];
+                    }
+                    if (!data.originalTarget) {
+                        data.originalTarget = data[5];
+                    }
+                    if (!isRFC1918(data[1])) {
+                        data[1] = 'non-rfc1918';
+                    }
+                    if (!isRFC1918(data[5])) {
+                        data[5] = 'non-rfc1918';
+                    }
+                    this.data(data);
+                });
+            } else {
+                table.rows().every(function () {
+                    var data = this.data();
+                    if (data[1] === 'non-rfc1918') {
+                        data[1] = data.originalSource;
+                    }
+                    if (data[5] === 'non-rfc1918') {
+                        data[5] = data.originalTarget;
+                    }
+                    this.data(data);
+                });
+            }
+
+            updateFilters();
+            updateGraph();
+            saveSettings();
+        });
+
+        $('#flows-table_filter input').on('keyup change', function () {
+            table.search(this.value).draw();
+            updateGraph();
+        });
+
+        $('#download-csv').off('click').on('click', function () {
+            downloadCSV();
+        });
+
+        updateGraph();
+    });
+</script>
 {% endblock %}
