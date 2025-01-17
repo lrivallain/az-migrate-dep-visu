@@ -1,3 +1,0 @@
-include az_migrate_dep_visu/templates/*.html
-include az_migrate_dep_visu/static/*
-include README.md

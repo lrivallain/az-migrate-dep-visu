@@ -62,74 +62,45 @@ The application will use this data to help filter and grouping resources in the 
 
 ## Running the Application
 
-### From source
-
-1. Install the required Python packages:
-
-   ```bash
-   pip install .
-   python az_migrate_dep_visu/app.py
-   ```
-
-2. Open the application in a web browser: [http://localhost:5000](http://localhost:5000)
-
 ### Using Docker
+
+You can build and run the application using Docker.
 
 1. Build the Docker image:
 
-   ```bash
-   docker build -t az-migrate-dep-visu .
-   ```
+    ```sh
+    docker build -t az-migrate-dep-visu .
+    ```
 
 2. Run the Docker container:
 
-   ```bash
-   docker run -p 5000:5000 az-migrate-dep-visu
-   ```
+    ```sh
+    docker run -p 8080:80 az-migrate-dep-visu
+    ```
 
-3. Open the application in a web browser: [http://localhost:5000](http://localhost:5000)
+3. Open your browser and navigate to `http://localhost:8080`.
 
-## From PyPi
+### Running Locally
 
-1. To install the package, use pip:
+You can also run the application locally by serving the static files with a web server of your choice.
 
-   ```bash
-   pip install az-migrate-dep-visu
-   ```
+1. Navigate to the project directory:
 
-2. To run the application:
+    ```sh
+    cd /path/to/your/project
+    ```
 
-   ```bash
-   az-mdv
-   # `az-mdv` is a script alias to az_migrate_dep_visu.app
-   ```
+2. Serve the files using a simple HTTP server. For example, using Python's built-in HTTP server:
 
-3. Open the application in a web browser: [http://localhost:5000](http://localhost:5000)
+    ```sh
+    python -m http.server 8080
+    ```
 
-### From Terraform & Azure (Container App)
+3. Open your browser and navigate to `http://localhost:8080`.
 
-Please refer to the [Terraform deployment guide](Terraform/README.md) for instructions on how to deploy the application
-on Azure using Terraform and Azure Container Apps.
+## Development
 
-## Configuration
-
-The application can be configured using environment variables:
-
-* `FLASK_BIND_ALL` (default: `false`): Set to `true` to bind the Flask application to all network interfaces (0.0.0.0).
-* `FLASK_DEBUG` (default: `true`): Set to `true` to enable debug mode in Flask.
-
-## Contributing
-
-Contributions are welcome! If you have suggestions for improvements or find bugs, please open an issue or submit a pull
-request.
-
-### Running Tests
-
-To run the tests, use the following command:
-
-```bash
-pytest
-```
+For development, you can use any web server to serve the static files. Make sure to update the JavaScript and HTML files as needed.
 
 ## Example
 

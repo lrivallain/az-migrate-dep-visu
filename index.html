@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Network flows analysis</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="icon" type="image/png" href="/static/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+    <script src="/static/scripts.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="container mt-5">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="/static/icon.png" alt="Icon" width="30" height="30" class="d-inline-block align-top">
+                Azure Migrate Network Flows Analysis
+            </a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item me-3">
+                        <a class="nav-link icon-link icon-link-hover" href="/">
+                            <i class="fas fa-upload" style="font-size: 20px;"></i>Analyze new file
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/lrivallain/az-migrate-dep-visu" target="_blank"
+                           title="GitHub repository for this project">
+                            <i class="fab fa-github" style="font-size: 20px;"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="upload-section">
+        <h2 class="mb-4">Import CSV File</h2>
+        <p class="lead">Import a CSV file from <i>Azure Migrate Dependency analysis</i> to start visualization.</p>
+        <p>You can add following columns to the CSV file to help grouping resources:</p>
+        <ul>
+            <li><code>Source VLAN</code></li>
+            <li><code>Destination VLAN</code></li>
+        </ul>
+        <div class="alert alert-warning" role="alert">
+            Be sure to use the exact column names as mentioned above.
+        </div>
+        <div class="alert alert-info" role="alert">
+            <p><strong>Data Privacy Notice:</strong> Your privacy is important to us.
+            <p>This web page analyzes data solely on the <strong>client side</strong>. No data is uploaded to our
+            servers. All processing is done locally on your device, ensuring that your information remains private
+            and secure.</p>
+        </div>
+        <form id="upload-form" class="form-inline">
+            <div class="form-group mb-2">
+                <input type="file" id="file-input" class="form-control-file">
+            </div>
+            <button type="button" id="upload-button" class="btn btn-primary mb-2 ml-2">Analyze</button>
+        </form>
+    </div>
+    <div id="result-section" style="display: none;">
+        <div id="graph-caption">
+            <p><strong>File:</strong> <code id="file-name"></code></p>
+            <div id="graph-configuration-container">
+                <input class="form-check-input" type="checkbox" id="enable-clustering">
+                <label class="form-check-label" for="enable-clustering">Group per VLAN</label>
+                <input class="form-check-input" type="checkbox" id="group-nonrfc1918">
+                <label class="form-check-label" for="group-nonrfc1918">Group Non-RFC1918</label>
+            </div>
+        </div>
+        <div id="loading-bar" class="progress" role="progressbar">
+            <div id="loading-bar-progress" class="progress-bar bg-success" style="width: 0%;">0%</div>
+        </div>
+        <div id="network"></div>
+        <div class="filter-container">
+            <div class="form-group">
+                <label for="source-ip-filter">Source IP:</label>
+                <select id="source-ip-filter" class="form-select">
+                    <option value="">All</option>
+                    <option value="non-rfc1918">Non-RFC1918</option>
+                    <option value="rfc1918">RFC1918</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="destination-ip-filter">Destination IP:</label>
+                <select id="destination-ip-filter" class="form-select">
+                    <option value="">All</option>
+                    <option value="non-rfc1918">Non-RFC1918</option>
+                    <option value="rfc1918">RFC1918</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="port-filter">Port:</label>
+                <select id="port-filter" class="form-select">
+                    <option value="">All</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="source-vlan-filter">Source VLAN:</label>
+                <select id="source-vlan-filter" class="form-select">
+                    <option value="">All</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="destination-vlan-filter">Destination VLAN:</label>
+                <select id="destination-vlan-filter" class="form-select">
+                    <option value="">All</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="column-select">Select Columns:</label>
+                <select id="column-select" class="form-select" multiple="multiple">
+                    <option value="0">Source Server Name</option>
+                    <option value="1" selected>Source IP</option>
+                    <option value="2">Source Application</option>
+                    <option value="3">Source Process</option>
+                    <option value="4">Destination Server Name</option>
+                    <option value="5" selected>Destination IP</option>
+                    <option value="6">Destination Application</option>
+                    <option value="7">Destination Process</option>
+                    <option value="8" selected>Destination Port</option>
+                    <option value="9">Source VLAN</option>
+                    <option value="10">Destination VLAN</option>
+                    <option value="11" selected>Count</option>
+                </select>
+            </div>
+        </div>
+        <table id="flows-table" class="table table-striped table-bordered" style="width:100%;">
+            <thead>
+                <tr>
+                    <th>Source Server Name</th>
+                    <th>Source IP</th>
+                    <th>Source Application</th>
+                    <th>Source Process</th>
+                    <th>Destination Server Name</th>
+                    <th>Destination IP</th>
+                    <th>Destination Application</th>
+                    <th>Destination Process</th>
+                    <th>Destination Port</th>
+                    <th>Source VLAN</th>
+                    <th>Destination VLAN</th>
+                    <th>Count</th>
+                </tr>
+            </thead>
+            <tbody id="flows-table-body">
+            </tbody>
+        </table>
+        <button id="download-csv" class="btn btn-success">Download CSV of the current selection</button>
+        <button id="reset-preferences" class="btn btn-secondary" type="button"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            data-bs-title="Your filtering and graph options are stored in a cookie.
+                You can reset this by using the 'Reset preferences' button.">
+            Reset preferences
+        </button>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            initializeTooltips();
+            initializeUploadButton();
+        });
+    </script>
+</body>
+</html>
