@@ -413,9 +413,13 @@ function initializeUploadButton() {
 }
 
 function processCSVData(csvData) {
-    const rows = csvData.split('\n').slice(1);
+    const rows = csvData.split('\n').slice(1).filter(row => row.trim() !== ''); // Ignore empty lines
     const data = rows.map(row => {
         const cols = row.split(',');
+        // ensure at least 9 columns are present
+        if (cols.length < 9) {
+            return null;
+        }
         return {
             source_server_name: cols[1],
             source: cols[2],

@@ -1,0 +1,313 @@
+﻿Time slot,Source server name,Source IP,Source application,Source process,Destination server name,Destination IP,Destination application,Destination process,Destination port,Source VLAN,Destination VLAN
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,,DraService.exe,,20.43.40.113,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,10.100.100.2,,vmwareSdk.exe,443,110,100
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,40.126.62.130,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,20.42.73.26,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,40.126.62.130,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,SqlService,SqlService.exe,,40.126.62.130,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,Internet Information Services,w3wp.exe,,23.100.122.113,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,GatewayWindowsService,GatewayWindowsService.exe,,52.188.247.150,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,SqlService,SqlService.exe,,52.188.247.146,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,AppModernizationService,AppModernizationService.exe,,20.189.173.5,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,AppModernizationService,AppModernizationService.exe,,52.178.17.234,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,VMWareCollectorService,VMWareCollectorService.exe,,51.138.214.19,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,52.178.17.234,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,SqlService,SqlService.exe,,52.178.17.234,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,AppModernizationService,AppModernizationService.exe,,52.179.73.39,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,AppModernizationService,AppModernizationService.exe,,23.100.122.113,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,,DraService.exe,,20.190.190.132,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,Internet Information Services,w3wp.exe,,52.179.73.36,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,20.42.73.26,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,10.100.100.2,,vmwareSdk.exe,443,110,100
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,52.188.247.146,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,SqlService,SqlService.exe,,20.190.151.69,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,13.89.179.13,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,10.100.100.2,,vmwareSdk.exe,443,110,100
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,20.190.151.67,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,20.42.65.91,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,20.190.151.67,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,SqlService,SqlService.exe,,20.190.151.67,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,Internet Information Services,w3wp.exe,,40.117.80.207,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,AppModernizationService,AppModernizationService.exe,,40.117.80.207,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,10.100.100.2,,vmwareSdk.exe,443,110,100
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,52.179.73.38,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,20.190.151.70,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,SqlService,SqlService.exe,,20.190.151.70,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,20.189.173.8,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,AppModernizationService,AppModernizationService.exe,,40.117.80.207,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,20.189.173.1,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,AppModernizationService,AppModernizationService.exe,,104.208.16.90,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,AppModernizationService,AppModernizationService.exe,,20.189.173.17,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,SqlService,SqlService.exe,,20.189.173.17,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,10.100.100.2,,vmwareSdk.exe,443,110,100
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,AppModernizationService,AppModernizationService.exe,,52.188.247.147,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,20.190.151.68,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,20.42.65.85,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,20.190.151.68,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,SqlService,SqlService.exe,,20.190.151.68,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,Microsoft Edge,msedge.exe,,13.107.21.239,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,AppModernizationService,AppModernizationService.exe,,23.100.122.113,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,10.100.100.2,,vmwareSdk.exe,443,110,100
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,52.179.73.59,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,20.190.151.68,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,SqlService,SqlService.exe,,20.190.151.68,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,40.79.141.153,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,10.100.100.2,,vmwareSdk.exe,443,110,100
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,13.69.116.109,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,20.190.190.131,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,20.190.190.131,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,Internet Information Services,w3wp.exe,,40.117.80.207,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,SqlService,SqlService.exe,,20.190.190.131,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,20.42.73.24,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,10.100.100.2,,vmwareSdk.exe,443,110,100
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,52.188.247.146,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,20.42.72.131,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,20.190.190.194,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,20.189.173.5,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,SqlService,SqlService.exe,,20.190.190.194,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,20.190.190.194,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,Internet Information Services,w3wp.exe,,23.100.122.113,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,VMWareCollectorService,VMWareCollectorService.exe,,51.138.214.19,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,20.189.173.1,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,VMWareCollectorService,VMWareCollectorService.exe,,20.189.173.1,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,10.100.100.2,,vmwareSdk.exe,443,110,100
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,20.189.173.1,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,20.190.190.131,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,20.190.190.131,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,SqlService,SqlService.exe,,20.190.190.131,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,AppModernizationService,AppModernizationService.exe,,40.117.80.207,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,10.100.100.2,,vmwareSdk.exe,443,110,100
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,52.188.247.147,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,20.189.173.16,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,40.126.62.132,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,SqlService,SqlService.exe,,40.126.62.132,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,Internet Information Services,w3wp.exe,,40.117.80.207,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,40.126.62.132,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,52.182.143.215,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,SqlService,SqlService.exe,,104.208.16.88,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,AppModernizationService,AppModernizationService.exe,,20.42.65.94,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,AppModernizationService,AppModernizationService.exe,,13.89.179.11,,Unknown process,443,110,
+12/15/2024 12:00-18:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,20.189.173.18,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,Internet Information Services,w3wp.exe,,52.179.73.36,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,Microsoft Edge,msedge.exe,MicrosoftAzureMigration,10.100.110.73,,Unknown process,44368,110,110
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,52.179.73.59,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,AppModernizationService,AppModernizationService.exe,,40.117.80.207,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,AppModernizationService,AppModernizationService.exe,,52.178.17.234,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,SqlService,SqlService.exe,,52.178.17.2,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,,System,MicrosoftAzureMigration,10.100.110.73,,Unknown process,61968,110,110
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,10.100.100.2,,vmwareSdk.exe,443,110,100
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,52.179.73.57,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,SqlService,SqlService.exe,,20.190.151.6,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,20.44.10.122,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,20.190.151.6,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,20.190.151.6,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,AppModernizationService,AppModernizationService.exe,,40.117.80.207,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,20.43.42.0,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,20.190.190.130,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,20.190.190.130,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,10.100.100.2,,vmwareSdk.exe,443,110,100
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,52.179.73.37,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,10.100.100.2,,vmwareSdk.exe,443,110,100
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,52.188.247.147,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,AppModernizationService,AppModernizationService.exe,,23.100.122.113,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,20.189.173.14,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,SqlService,SqlService.exe,,20.190.190.196,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,20.190.190.196,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,20.190.190.196,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,Internet Information Services,w3wp.exe,,52.179.73.38,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,Microsoft Edge,msedge.exe,MicrosoftAzureMigration,10.100.110.73,,Unknown process,44368,110,110
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,Internet Information Services,w3wp.exe,,40.117.80.207,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,,System,MicrosoftAzureMigration,10.100.110.73,,Unknown process,62079,110,110
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,10.100.100.2,,vmwareSdk.exe,443,110,100
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,,DraService.exe,,20.190.190.196,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,SqlService,SqlService.exe,,52.168.117.168,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,52.179.73.38,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,52.168.112.66,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,AppModernizationService,AppModernizationService.exe,,40.117.80.207,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,10.100.100.2,,vmwareSdk.exe,443,110,100
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,20.189.173.1,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,52.179.73.39,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,SqlService,SqlService.exe,,20.190.190.131,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,20.189.173.16,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,20.190.190.131,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,20.190.190.131,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,10.100.100.2,,vmwareSdk.exe,443,110,100
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,AppModernizationService,AppModernizationService.exe,,20.190.151.70,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,Internet Information Services,w3wp.exe,,52.179.73.38,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,Microsoft Edge,msedge.exe,MicrosoftAzureMigration,10.100.110.73,,Unknown process,44368,110,110
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,52.188.247.147,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,Internet Information Services,w3wp.exe,,23.100.122.113,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,104.208.16.95,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareCollectorService,VMWareCollectorService.exe,,51.138.214.19,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,AppModernizationService,AppModernizationService.exe,,20.42.65.93,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,AppModernizationService,AppModernizationService.exe,,23.100.122.113,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,SqlService,SqlService.exe,,20.42.65.93,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,20.42.65.93,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,,System,MicrosoftAzureMigration,10.100.110.73,,Unknown process,62204,110,110
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,10.100.100.2,,vmwareSdk.exe,443,110,100
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,52.179.73.37,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,Microsoft Edge,msedge.exe,,13.107.21.239,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,SqlService,SqlService.exe,,20.190.190.194,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,52.182.143.209,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,20.190.190.194,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,20.190.190.194,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,Internet Information Services,w3wp.exe,,40.117.80.207,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,AppModernizationService,AppModernizationService.exe,,40.117.80.207,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,40.79.141.153,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,10.100.100.2,,vmwareSdk.exe,443,110,100
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,52.188.247.146,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,13.89.179.14,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,SqlService,SqlService.exe,,52.188.247.151,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,10.100.100.2,,vmwareSdk.exe,443,110,100
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,52.179.73.59,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,SqlService,SqlService.exe,,20.190.151.67,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,20.189.173.10,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,20.189.173.10,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,20.190.151.67,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,20.190.151.67,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,Internet Information Services,w3wp.exe,,52.179.73.38,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,Microsoft Edge,msedge.exe,MicrosoftAzureMigration,10.100.110.73,,Unknown process,44368,110,110
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,,System,MicrosoftAzureMigration,10.100.110.73,,Unknown process,62305,110,110
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,10.100.100.2,,vmwareSdk.exe,443,110,100
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,20.42.65.88,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,52.188.247.150,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,52.182.143.215,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareCollectorService,VMWareCollectorService.exe,,13.89.179.13,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,10.100.100.2,,vmwareSdk.exe,443,110,100
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,13.89.179.13,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,52.179.73.57,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,SqlService,SqlService.exe,,20.190.190.129,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,13.69.116.104,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,13.69.116.104,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,20.190.190.129,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,20.190.190.129,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,Internet Information Services,w3wp.exe,,23.100.122.113,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,10.100.100.2,,vmwareSdk.exe,443,110,100
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,Internet Information Services,w3wp.exe,,52.188.247.147,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,Microsoft Edge,msedge.exe,MicrosoftAzureMigration,10.100.110.73,,Unknown process,44368,110,110
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,52.179.73.52,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,20.189.173.13,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,20.190.151.69,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,20.189.173.28,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,AppModernizationService,AppModernizationService.exe,,20.189.173.5,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,SqlService,SqlService.exe,,20.189.173.8,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,,System,MicrosoftAzureMigration,10.100.110.73,,Unknown process,62426,110,110
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,10.100.100.2,,vmwareSdk.exe,443,110,100
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,Internet Information Services,w3wp.exe,,23.100.122.113,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,52.179.73.38,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,AppModernizationService,AppModernizationService.exe,,52.179.73.38,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,SqlService,SqlService.exe,,40.126.62.130,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,20.189.173.18,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,20.189.173.18,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,40.126.62.130,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,40.126.62.130,,Unknown process,443,110,
+12/18/2024 18:00-0:00,Win03,10.100.110.41,Microsoft® Windows® Operating System,svchost.exe,,20.72.205.209,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,10.100.100.2,,vmwareSdk.exe,443,110,100
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,52.188.247.150,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,20.189.173.17,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,40.126.62.130,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,AppModernizationService,AppModernizationService.exe,,52.179.73.39,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,10.100.100.2,,vmwareSdk.exe,443,110,100
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,52.179.73.39,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,SqlService,SqlService.exe,,20.190.190.196,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,52.168.117.171,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,20.190.190.196,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,20.190.190.196,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,Internet Information Services,w3wp.exe,,52.179.73.52,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,Microsoft Edge,msedge.exe,MicrosoftAzureMigration,10.100.110.73,,Unknown process,44368,110,110
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareCollectorService,VMWareCollectorService.exe,,20.50.80.214,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,20.42.65.90,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,AppModernizationService,AppModernizationService.exe,,23.100.122.113,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,,System,MicrosoftAzureMigration,10.100.110.73,,Unknown process,62531,110,110
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,10.100.100.2,,vmwareSdk.exe,443,110,100
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,52.188.247.149,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,13.89.179.11,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,13.89.179.11,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,20.190.190.132,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareCollectorService,VMWareCollectorService.exe,,51.138.214.19,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,10.100.100.2,,vmwareSdk.exe,443,110,100
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,20.42.65.89,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,52.179.73.39,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,AppModernizationService,AppModernizationService.exe,,20.190.151.132,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,SqlService,SqlService.exe,,20.190.151.132,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,20.42.73.24,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,20.42.73.24,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,20.190.151.132,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,20.190.151.132,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareCollectorService,VMWareCollectorService.exe,,51.11.192.48,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,10.100.100.2,,vmwareSdk.exe,443,110,100
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,52.179.73.36,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,Internet Information Services,w3wp.exe,,52.179.73.59,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,Microsoft Edge,msedge.exe,MicrosoftAzureMigration,10.100.110.73,,Unknown process,44368,110,110
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,51.132.193.104,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,WebAppService,WebAppService.exe,,20.190.190.131,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,AppModernizationService,AppModernizationService.exe,,52.179.73.39,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,VMWareDiscoveryService,VMWareDiscoveryService.exe,,20.42.73.26,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,AppModernizationService,AppModernizationService.exe,,13.69.239.72,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,SqlService,SqlService.exe,,13.69.239.72,,Unknown process,443,110,
+12/18/2024 18:00-0:00,MicrosoftAzureMigration,10.100.110.73,,System,MicrosoftAzureMigration,10.100.110.73,,Unknown process,62647,110,110
+12/18/2024 18:00-0:00,Win02,10.100.110.25,Microsoft® Windows® Operating System,fake.exe,,10.100.110.25,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win03,10.100.110.41,Microsoft® Windows® Operating System,fake.exe,,10.100.110.25,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win01,10.100.110.17,Microsoft® Windows® Operating System,fake.exe,,10.100.110.25,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win03,10.100.110.41,Microsoft® Windows® Operating System,fake.exe,,10.100.110.25,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win01,10.100.110.17,Microsoft® Windows® Operating System,fake.exe,,10.100.110.73,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win03,10.100.110.41,Microsoft® Windows® Operating System,fake.exe,,10.100.110.73,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win02,10.100.110.25,Microsoft® Windows® Operating System,fake.exe,,10.100.115.1,,Unknown process,1433,110,115
+12/18/2024 18:00-0:00,Win03,10.100.110.41,Microsoft® Windows® Operating System,fake.exe,,10.100.115.1,,Unknown process,1433,110,115
+12/18/2024 18:00-0:00,Win02,10.100.110.25,Microsoft® Windows® Operating System,fake.exe,,10.100.110.25,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win03,10.100.110.41,Microsoft® Windows® Operating System,fake.exe,,10.100.110.25,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win01,10.100.110.17,Microsoft® Windows® Operating System,fake.exe,,10.100.110.25,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win03,10.100.110.41,Microsoft® Windows® Operating System,fake.exe,,10.100.110.25,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win01,10.100.110.17,Microsoft® Windows® Operating System,fake.exe,,10.100.110.73,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win03,10.100.110.41,Microsoft® Windows® Operating System,fake.exe,,10.100.110.73,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win02,10.100.110.25,Microsoft® Windows® Operating System,fake.exe,,10.100.115.1,,Unknown process,1433,110,115
+12/18/2024 18:00-0:00,Win03,10.100.110.41,Microsoft® Windows® Operating System,fake.exe,,10.100.115.1,,Unknown process,1433,110,115
+12/18/2024 18:00-0:00,Win02,10.100.110.25,Microsoft® Windows® Operating System,fake.exe,,10.100.110.25,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win03,10.100.110.41,Microsoft® Windows® Operating System,fake.exe,,10.100.110.25,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win01,10.100.110.17,Microsoft® Windows® Operating System,fake.exe,,10.100.110.25,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win03,10.100.110.41,Microsoft® Windows® Operating System,fake.exe,,10.100.110.25,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win01,10.100.110.17,Microsoft® Windows® Operating System,fake.exe,,10.100.110.73,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win03,10.100.110.41,Microsoft® Windows® Operating System,fake.exe,,10.100.110.73,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win02,10.100.110.25,Microsoft® Windows® Operating System,fake.exe,,10.100.115.1,,Unknown process,1433,110,115
+12/18/2024 18:00-0:00,Win03,10.100.110.41,Microsoft® Windows® Operating System,fake.exe,,10.100.115.1,,Unknown process,1433,110,115
+12/18/2024 18:00-0:00,Win02,10.100.110.25,Microsoft® Windows® Operating System,fake.exe,,10.100.110.25,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win03,10.100.110.41,Microsoft® Windows® Operating System,fake.exe,,10.100.110.25,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win01,10.100.110.17,Microsoft® Windows® Operating System,fake.exe,,10.100.110.25,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win03,10.100.110.41,Microsoft® Windows® Operating System,fake.exe,,10.100.110.25,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win01,10.100.110.17,Microsoft® Windows® Operating System,fake.exe,,10.100.110.73,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win03,10.100.110.41,Microsoft® Windows® Operating System,fake.exe,,10.100.110.73,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win02,10.100.110.25,Microsoft® Windows® Operating System,fake.exe,,10.100.115.1,,Unknown process,1433,110,115
+12/18/2024 18:00-0:00,Win03,10.100.110.41,Microsoft® Windows® Operating System,fake.exe,,10.100.115.1,,Unknown process,1433,110,115
+12/18/2024 18:00-0:00,Win02,10.100.110.25,Microsoft® Windows® Operating System,fake.exe,,10.100.110.25,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win03,10.100.110.41,Microsoft® Windows® Operating System,fake.exe,,10.100.110.25,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win01,10.100.110.17,Microsoft® Windows® Operating System,fake.exe,,10.100.110.25,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win03,10.100.110.41,Microsoft® Windows® Operating System,fake.exe,,10.100.110.25,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win01,10.100.110.17,Microsoft® Windows® Operating System,fake.exe,,10.100.110.73,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win03,10.100.110.41,Microsoft® Windows® Operating System,fake.exe,,10.100.110.73,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win02,10.100.110.25,Microsoft® Windows® Operating System,fake.exe,,10.100.115.1,,Unknown process,1433,110,115
+12/18/2024 18:00-0:00,Win03,10.100.110.41,Microsoft® Windows® Operating System,fake.exe,,10.100.115.1,,Unknown process,1433,110,115
+12/18/2024 18:00-0:00,Win02,10.100.110.25,Microsoft® Windows® Operating System,fake.exe,,10.100.110.25,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win03,10.100.110.41,Microsoft® Windows® Operating System,fake.exe,,10.100.110.25,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win01,10.100.110.17,Microsoft® Windows® Operating System,fake.exe,,10.100.110.25,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win03,10.100.110.41,Microsoft® Windows® Operating System,fake.exe,,10.100.110.25,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win01,10.100.110.17,Microsoft® Windows® Operating System,fake.exe,,10.100.110.73,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win03,10.100.110.41,Microsoft® Windows® Operating System,fake.exe,,10.100.110.73,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win02,10.100.110.25,Microsoft® Windows® Operating System,fake.exe,,10.100.115.1,,Unknown process,1433,110,115
+12/18/2024 18:00-0:00,Win03,10.100.110.41,Microsoft® Windows® Operating System,fake.exe,,10.100.115.1,,Unknown process,1433,110,115
+12/18/2024 18:00-0:00,Win02,10.100.110.25,Microsoft® Windows® Operating System,fake.exe,,10.100.110.25,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win03,10.100.110.41,Microsoft® Windows® Operating System,fake.exe,,10.100.110.25,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win01,10.100.110.17,Microsoft® Windows® Operating System,fake.exe,,10.100.110.25,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win03,10.100.110.41,Microsoft® Windows® Operating System,fake.exe,,10.100.110.25,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win01,10.100.110.17,Microsoft® Windows® Operating System,fake.exe,,10.100.110.73,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win03,10.100.110.41,Microsoft® Windows® Operating System,fake.exe,,10.100.110.73,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win02,10.100.110.25,Microsoft® Windows® Operating System,fake.exe,,10.100.115.1,,Unknown process,1433,110,115
+12/18/2024 18:00-0:00,Win03,10.100.110.41,Microsoft® Windows® Operating System,fake.exe,,10.100.115.1,,Unknown process,1433,110,115
+12/18/2024 18:00-0:00,Win02,10.100.110.25,Microsoft® Windows® Operating System,fake.exe,,10.100.110.25,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win03,10.100.110.41,Microsoft® Windows® Operating System,fake.exe,,10.100.110.25,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win01,10.100.110.17,Microsoft® Windows® Operating System,fake.exe,,10.100.110.25,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win03,10.100.110.41,Microsoft® Windows® Operating System,fake.exe,,10.100.110.25,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win01,10.100.110.17,Microsoft® Windows® Operating System,fake.exe,,10.100.110.73,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win03,10.100.110.41,Microsoft® Windows® Operating System,fake.exe,,10.100.110.73,,Unknown process,1433,110,110
+12/18/2024 18:00-0:00,Win02,10.100.110.25,Microsoft® Windows® Operating System,fake.exe,,10.100.115.1,,Unknown process,1433,110,115
+12/18/2024 18:00-0:00,Win03,10.100.110.41,Microsoft® Windows® Operating System,fake.exe,,10.100.115.1,,Unknown process,1433,110,115
+12/18/2024 18:00-0:00,Win02,10.100.110.25,Microsoft® Windows® Operating System,fake.exe,,10.100.110.25,,Unknown process,1433,110,110

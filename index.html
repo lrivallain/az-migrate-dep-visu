@@ -4,7 +4,7 @@
     <title>Network flows analysis</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./static/styles.css">
-    <link rel="icon" type="image/png" href="./static/icon.png">
+    <link rel="icon" type="image/png" href="./static/icon_simplified.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" />
@@ -21,7 +21,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="./static/icon.png" alt="Icon" width="30" height="30" class="d-inline-block align-top">
+                <img src="./static/icon_simplified.png" alt="Icon" width="30" height="30" class="d-inline-block align-top">
                 Azure Migrate Network Flows Analysis
             </a>
             <div class="collapse navbar-collapse">
@@ -62,7 +62,8 @@
             <div class="form-group mb-2">
                 <input type="file" id="file-input" class="form-control-file">
             </div>
-            <button type="button" id="upload-button" class="btn btn-primary mb-2 ml-2">Analyze</button>
+            <button type="button" id="upload-button" class="btn btn-primary mb-2 ml-2">Analyze</button> or
+            <button type="button" id="test-data-button" class="btn btn-light mb-2 ml-2">Use Test Data</button>
         </form>
     </div>
     <div id="result-section" style="display: none;">
@@ -165,6 +166,17 @@
         document.addEventListener('DOMContentLoaded', function () {
             initializeTooltips();
             initializeUploadButton();
+
+            document.getElementById('test-data-button').addEventListener('click', function () {
+                fetch('./static/test-data.csv')
+                    .then(response => response.text())
+                    .then(csvData => {
+                        document.getElementById('file-name').textContent = 'test-data.csv';
+                        processCSVData(csvData);
+                        document.getElementById('upload-section').style.display = 'none';
+                        document.getElementById('result-section').style.display = 'block';
+                    });
+            });
         });
     </script>
 </body>
