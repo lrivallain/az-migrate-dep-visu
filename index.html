@@ -179,8 +179,14 @@
                         processCSVData(csvData);
                         document.getElementById('upload-section').style.display = 'none';
                         document.getElementById('result-section').style.display = 'block';
+                        window.location.hash = '#test'; // Add #test to the URI
                     });
             });
+
+            // Automatically load test data if #test is in the URI
+            if (window.location.hash === '#test') {
+                document.getElementById('test-data-button').click();
+            }
         });
     </script>
 </body>
