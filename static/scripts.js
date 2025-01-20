@@ -248,6 +248,13 @@ function updateGraph() {
         nodes: new vis.DataSet(nodes),
         edges: new vis.DataSet(edges)
     };
+
+    if (nodes.length === 0 && edges.length === 0) {
+        container.innerHTML = '<p class="text-center text-warning">No matching records found.</p>';
+        document.getElementById('loading-bar').style.display = 'none';
+        return;
+    }
+
     var options = {
         nodes: {
             shape: 'dot',
@@ -470,17 +477,23 @@ function processCSVData(csvData) {
     });
 
     uniqueSourceVlans.forEach(vlan => {
-        const option = document.createElement('option');
-        option.value = vlan;
-        option.textContent = vlan;
-        sourceVlanFilter.appendChild(option);
+        if (vlan && vlan.trim() != "") { // Check if VLAN is not empty
+            //console.log("src vlan added: " + vlan);
+            const option = document.createElement('option');
+            option.value = vlan;
+            option.textContent = vlan;
+            sourceVlanFilter.appendChild(option);
+        }
     });
 
     uniqueDestinationVlans.forEach(vlan => {
-        const option = document.createElement('option');
-        option.value = vlan;
-        option.textContent = vlan;
-        destinationVlanFilter.appendChild(option);
+        if (vlan && vlan.trim() != "") { // Check if VLAN is not empty
+            //console.log("dst vlan added: " + vlan + " type: " + typeof vlan);
+            const option = document.createElement('option');
+            option.value = vlan;
+            option.textContent = vlan;
+            destinationVlanFilter.appendChild(option);
+        }
     });
 
     const tableBody = document.getElementById('flows-table-body');
