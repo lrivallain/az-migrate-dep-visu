@@ -620,3 +620,21 @@ function processCSVData(csvData) {
 
     updateGraph();
 }
+
+function initializeTestButton() {
+    document.getElementById('test-data-button').addEventListener('click', function () {
+        fetch('./static/test-data.csv')
+            .then(response => response.text())
+            .then(csvData => {
+                document.getElementById('file-name').textContent = 'test-data.csv';
+                processCSVData(csvData);
+                document.getElementById('upload-section').style.display = 'none';
+                document.getElementById('result-section').style.display = 'block';
+                window.location.hash = '#test'; // Add #test to the URI
+            });
+    });
+    // Automatically load test data if #test is in the URI
+    if (window.location.hash === '#test') {
+        document.getElementById('test-data-button').click();
+    }
+}

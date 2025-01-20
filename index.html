@@ -16,11 +16,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
     <script src="./static/scripts.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css" />
-    <style>
-        body {
-            max-width: 1200px;
-        }
-    </style>
 </head>
 <body class="container-fluid mt-5">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
@@ -44,6 +39,7 @@
                         <a class="nav-link" href="https://github.com/lrivallain/az-migrate-dep-visu" target="_blank"
                            title="GitHub repository for this project">
                             <i class="fab fa-github" style="font-size: 20px;"></i>
+                            <span class="d-lg-none">Visit GitHub repository</span>
                         </a>
                     </li>
                 </ul>
@@ -175,23 +171,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             initializeTooltips();
             initializeUploadButton();
-
-            document.getElementById('test-data-button').addEventListener('click', function () {
-                fetch('./static/test-data.csv')
-                    .then(response => response.text())
-                    .then(csvData => {
-                        document.getElementById('file-name').textContent = 'test-data.csv';
-                        processCSVData(csvData);
-                        document.getElementById('upload-section').style.display = 'none';
-                        document.getElementById('result-section').style.display = 'block';
-                        window.location.hash = '#test'; // Add #test to the URI
-                    });
-            });
-
-            // Automatically load test data if #test is in the URI
-            if (window.location.hash === '#test') {
-                document.getElementById('test-data-button').click();
-            }
+            initializeTestButton();
         });
     </script>
 </body>
