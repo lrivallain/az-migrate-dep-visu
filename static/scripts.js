@@ -355,6 +355,88 @@ $(document).ready(function () {
     });
 
     loadSettings();
+
+    $('#source-ip-filter, #destination-ip-filter, #port-filter, #source-vlan-filter, #destination-vlan-filter, #enable-clustering, #group-nonrfc1918').on('change', function () {
+        var sourceIp = $('#source-ip-filter').val();
+        var destinationIp = $('#destination-ip-filter').val();
+        var port = $('#port-filter').val();
+        var sourceVlan = $('#source-vlan-filter').val();
+        var destinationVlan = $('#destination-vlan-filter').val();
+
+        if (sourceIp === 'non-rfc1918') {
+            table.column(1).search('^(?!10\\.|172\\.(1[6-9]|2[0-9]|3[0-1])\\.|192\\.168\\.).*$', true, false);
+        } else if (sourceIp === 'rfc1918') {
+            table.column(1).search('^(10\\.|172\\.(1[6-9]|2[0-9]|3[0-1])\\.|192\\.168\\.)', true, false);
+        } else if (sourceIp) {
+            table.column(1).search('^' + sourceIp + '$', true, false); // Exact match for source IP
+        } else {
+            table.column(1).search('');
+        }
+
+        if (destinationIp === 'non-rfc1918') {
+            table.column(5).search('^(?!10\\.|172\\.(1[6-9]|2[0-9]|3[0-1])\\.|192\\.168\\.).*$', true, false);
+        } else if (destinationIp === 'rfc1918') {
+            table.column(5).search('^(10\\.|172\\.(1[6-9]|2[0-9]|3[0-1])\\.|192\\.168\\.)', true, false);
+        } else if (destinationIp) {
+            table.column(5).search('^' + destinationIp + '$', true, false); // Exact match for destination IP
+        } else {
+            table.column(5).search('');
+        }
+
+        if (port) {
+            table.column(8).search('^' + port + '$', true, false); // Exact match for port
+        } else {
+            table.column(8).search('');
+        }
+
+        if (sourceVlan) {
+            table.column(9).search('^' + sourceVlan + '$', true, false); // Exact match for source VLAN
+        } else {
+            table.column(9).search('');
+        }
+
+        if (destinationVlan) {
+            table.column(10).search('^' + destinationVlan + '$', true, false); // Exact match for destination VLAN
+        } else {
+            table.column(10).search('');
+        }
+
+        table.draw();
+
+        if ($('#group-nonrfc1918').is(':checked')) {
+            table.rows().every(function () {
+                var data = this.data();
+                if (!data.originalSource) {
+                    data.originalSource = data[1];
+                }
+                if (!data.originalTarget) {
+                    data.originalTarget = data[5];
+                }
+                if (!isRFC1918(data[1])) {
+                    data[1] = 'non-rfc1918';
+                }
+                if (!isRFC1918(data[5])) {
+                    data[5] = 'non-rfc1918';
+                }
+                this.data(data);
+            });
+        } else {
+            table.rows().every(function () {
+                var data = this.data();
+                if (data[1] === 'non-rfc1918') {
+                    data[1] = data.originalSource;
+                }
+                if (data[5] === 'non-rfc1918') {
+                    data[5] = data.originalTarget;
+                }
+                this.data(data);
+            });
+        }
+
+        updateFilters();
+        updateGraph();
+        saveSettings();
+    });
 });
 
 function downloadCSV() {
@@ -482,7 +564,6 @@ function processCSVData(csvData) {
 
     uniqueSourceVlans.forEach(vlan => {
         if (vlan && vlan.trim() != "") { // Check if VLAN is not empty
-            //console.log("src vlan added: " + vlan);
             const option = document.createElement('option');
             option.value = vlan;
             option.textContent = vlan;
@@ -492,7 +573,6 @@ function processCSVData(csvData) {
 
     uniqueDestinationVlans.forEach(vlan => {
         if (vlan && vlan.trim() != "") { // Check if VLAN is not empty
-            //console.log("dst vlan added: " + vlan + " type: " + typeof vlan);
             const option = document.createElement('option');
             option.value = vlan;
             option.textContent = vlan;
@@ -542,16 +622,20 @@ function processCSVData(csvData) {
             table.column(1).search('^(?!10\\.|172\\.(1[6-9]|2[0-9]|3[0-1])\\.|192\\.168\\.).*$', true, false);
         } else if (sourceIp === 'rfc1918') {
             table.column(1).search('^(10\\.|172\\.(1[6-9]|2[0-9]|3[0-1])\\.|192\\.168\\.)', true, false);
+        } else if (sourceIp) {
+            table.column(1).search('^' + sourceIp + '$', true, false); // Exact match for source IP
         } else {
-            table.column(1).search(sourceIp);
+            table.column(1).search('');
         }
 
         if (destinationIp === 'non-rfc1918') {
             table.column(5).search('^(?!10\\.|172\\.(1[6-9]|2[0-9]|3[0-1])\\.|192\\.168\\.).*$', true, false);
         } else if (destinationIp === 'rfc1918') {
             table.column(5).search('^(10\\.|172\\.(1[6-9]|2[0-9]|3[0-1])\\.|192\\.168\\.)', true, false);
+        } else if (destinationIp) {
+            table.column(5).search('^' + destinationIp + '$', true, false); // Exact match for destination IP
         } else {
-            table.column(5).search(destinationIp);
+            table.column(5).search('');
         }
 
         if (port) {
