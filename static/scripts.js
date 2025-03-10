@@ -359,7 +359,7 @@ $(document).ready(function () {
 
 function downloadCSV() {
     var csv = [];
-    var rows = table.rows().nodes(); // Get all rows, not just the current page
+    var rows = table.rows({ filter: 'applied' }).nodes(); // Get only filtered rows
 
     for (var i = 0; i < rows.length; i++) {
         var row = [], cols = rows[i].querySelectorAll("td, th");
